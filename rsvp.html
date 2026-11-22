@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>RSVP – Thale & Jacob</title>
+  <meta name="description" content="Svar på invitasjonen til bryllupet til Thale og Jacob.">
+  <meta name="theme-color" content="#24322B">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Thale <span class="amp">&amp;</span> Jacob</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Meny</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Hovedmeny">
+        <ul>
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="praktisk.html">Praktisk info</a></li>
+        <li><a href="rsvp.html" aria-current="page">RSVP</a></li>
+        <li><a href="onskeliste.html">Ønskeliste</a></li>
+        <li><a href="sporsmal.html">Spørsmål</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <p class="kicker">Gi oss beskjed</p>
+      <h1>RSVP</h1>
+    </section>
+
+    <div class="wrap">
+      <p>Vi trenger svar innen <strong id="rsvp-deadline"><span class="todo">dato</span></strong>. Ett svar per husstand er nok – legg til alle som kommer i skjemaet.</p>
+
+      <form id="rsvp-form" novalidate>
+        <div class="hp" aria-hidden="true"><label>Ikke fyll ut dette feltet <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <div>
+          <label for="navn">Ditt navn</label>
+          <input id="navn" name="navn" type="text" required autocomplete="name">
+        </div>
+
+        <div>
+          <label for="epost">E-post</label>
+          <input id="epost" name="epost" type="email" required autocomplete="email">
+          <p class="hint">Så vi kan sende viktig informasjon underveis.</p>
+        </div>
+
+        <fieldset>
+          <legend>Kommer du?</legend>
+          <div class="choice">
+            <label><input type="radio" name="kommer" value="ja"> Ja, jeg kommer!</label>
+            <label><input type="radio" name="kommer" value="nei"> Dessverre, jeg kan ikke</label>
+          </div>
+        </fieldset>
+
+        <div id="attending-fields" class="group" hidden>
+          <div>
+            <label for="antall">Antall personer (inkludert deg)</label>
+            <input id="antall" name="antall" type="number" min="1" max="10" value="1">
+          </div>
+          <div>
+            <label for="andre">Navn på øvrige gjester</label>
+            <input id="andre" name="andre_gjester" type="text">
+          </div>
+
+          <fieldset>
+            <legend>Når kommer du?</legend>
+            <div class="choice">
+              <label><input type="radio" name="ankomst" value="Fredag (hele helgen)"> Fredag – jeg blir hele helgen</label>
+              <label><input type="radio" name="ankomst" value="Lørdag (lørdag til søndag)"> Lørdag – jeg kommer til bryllupsdagen</label>
+            </div>
+            <p class="hint">Fredag er en uformell middag for dem som kommer tidlig. Se <a href="program.html">programmet</a>.</p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Overnatting</legend>
+            <div class="choice">
+              <label><input type="radio" name="overnatting" value="Hotellet"> Jeg vil bo på bryllupshotellet</label>
+              <label><input type="radio" name="overnatting" value="Egen overnatting"> Jeg ordner overnatting selv</label>
+            </div>
+            <p class="hint">Hotellet koster kr 2000 per person for hele helgen, uavhengig av om du bor én eller to netter. Du kan ikke booke rom selv: vi fordeler rommene ut fra svarene her, og du betaler i resepsjonen når du reiser. <span class="todo">Skriv når gjestene hører om rom, f.eks. etter svarfristen.</span></p>
+          </fieldset>
+
+          <div>
+            <label for="allergier">Allergier og matpreferanser</label>
+            <textarea id="allergier" name="allergier"></textarea>
+          </div>
+          <div>
+            <label for="sang">Sangønske til dansegulvet (valgfritt)</label>
+            <input id="sang" name="sangonske" type="text">
+          </div>
+        </div>
+
+        <div>
+          <label for="kommentar">Hilsen eller kommentar (valgfritt)</label>
+          <textarea id="kommentar" name="kommentar"></textarea>
+        </div>
+
+        <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+        <div><button class="btn" type="submit">Send svar</button></div>
+      </form>
+
+      <p class="hint" style="margin-top:2rem">Endrer planene seg? Send inn skjemaet på nytt, eller ta kontakt med oss direkte. <span class="todo">kontaktadresse</span></p>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="divider"></div>
+    <p>Thale &amp; Jacob · 5. juni 2027 · Hindsæter Hotell</p>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>
