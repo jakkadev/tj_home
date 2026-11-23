@@ -50,7 +50,7 @@ const CONFIG = {
 
   const LABELS = {
     navn: "Navn", epost: "E-post", kommer: "Kommer", antall: "Antall personer",
-    andre_gjester: "Øvrige gjester", ankomst: "Ankomst", overnatting: "Overnatting",
+    andre_gjester: "Øvrige gjester", ankomst: "Ankomst", fredagsmiddag: "Middag fredag", overnatting: "Overnatting",
     allergier: "Allergier/mat", sangonske: "Sangønske", kommentar: "Kommentar"
   };
 
@@ -58,11 +58,14 @@ const CONFIG = {
   if (deadline) deadline.textContent = CONFIG.rsvpDeadline;
 
   const attendingFields = document.getElementById("attending-fields");
+  const fridayDinner = document.getElementById("fredag-middag");
   const msg = document.getElementById("form-msg");
 
   const syncAttending = () => {
     const v = form.querySelector('input[name="kommer"]:checked');
     attendingFields.hidden = !(v && v.value === "ja");
+    const a = form.querySelector('input[name="ankomst"]:checked');
+    fridayDinner.hidden = !(a && a.value.startsWith("Fredag"));
   };
   form.addEventListener("change", syncAttending);
   syncAttending();
@@ -80,6 +83,7 @@ const CONFIG = {
     if (!data.kommer) return "Si fra om du kommer eller ikke.";
     if (data.kommer === "ja") {
       if (!data.ankomst) return "Velg om du kommer fredag eller lørdag.";
+      if (data.ankomst.startsWith("Fredag") && !data.fredagsmiddag) return "Si fra om du vil være med på middag fredag.";
       if (!data.overnatting) return "Velg om du vil bo på hotellet eller ordner overnatting selv.";
     }
     return "";
@@ -93,6 +97,8 @@ const CONFIG = {
     if (data.kommer !== "ja") {
       ["antall", "andre_gjester", "ankomst", "overnatting", "allergier", "sangonske"].forEach((k) => delete data[k]);
     }
+
+    if (!data.ankomst || !data.ankomst.startsWith("Fredag")) delete data.fredagsmiddag;
 
     const problem = missing(data);
     if (problem) { show(problem, false); return; }
