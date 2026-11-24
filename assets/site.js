@@ -6,11 +6,11 @@ const CONFIG = {
   weddingDate: "2027-06-05T00:00:00",
   // RSVP: URL til Google Apps Script-webappen (se oppsett-rsvp.md).
   // La stå tom så åpnes e-postprogrammet i stedet (reserveløsning).
-  rsvpEndpoint: "https://script.google.com/macros/s/AKfycbx9UZGzK5DOHAXvlUnld2JbE0YxRtHaCOcF3yPZM6kwKmvcZNsUX36z5ec6UGIRfWWUcg/exec",
+  rsvpEndpoint: "https://script.google.com/macros/s/AKfycbz3E-CWRXNqaEGOFXCTJedG6U4k0VcotUohYrhEZPslzqhkJ6d-qFBShrQ-aHdMlKBwOQ/exec",
   // E-post som mottar svar hvis RSVP-adressen over er tom (reserveløsning).
-  contactEmail: "EPOST@EKSEMPEL.NO",
+  contactEmail: "jacob.hofgaard@gmail.com",
   // Svarfrist som vises på RSVP-siden.
-  rsvpDeadline: "[dato for svarfrist]"
+  rsvpDeadline: "5. april 2027"
 };
 
 /* ====== Meny (dropdown på mobil) ====== */
